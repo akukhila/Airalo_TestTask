@@ -9,5 +9,5 @@ test.beforeEach(async ({ page }) => {
 test('Select first eSIM package for Japan',async({pageManager})=>{
     await pageManager.homePage.searchCountry('Japan');
     await pageManager.homePage.clickBuyNowButton();
-    await pageManager.homePage.checkPackageDetails();
+    await pageManager.homePage.checkPackageDetails('Moshi Moshi','Japan','1 GB','7 Days','4.50 €');
 })
