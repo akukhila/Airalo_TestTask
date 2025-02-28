@@ -26,6 +26,7 @@ I also added fixtures.ts file to create an object of the Page Manager class only
 
 Tests folder contains one file with test **Select first esim package for Japan** :
 Each method in the test represents the step described in the Test Case.
+In the test I used parameters to be able to reuse this test but with another data (another country and package condition)
 
 **playwright.config.ts** file contain all necessary settings related to the tests and test execution
 

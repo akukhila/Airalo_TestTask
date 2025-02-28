@@ -6,8 +6,17 @@ test.beforeEach(async ({ page }) => {
 
 })
 
-test('Select first eSIM package for Japan',async({pageManager})=>{
-    await pageManager.homePage.searchCountry('Japan');
-    await pageManager.homePage.clickBuyNowButton();
-    await pageManager.homePage.checkPackageDetails('Moshi Moshi','Japan','1 GB','7 Days','4.50 €');
-})
+
+const testCases = [
+    { country: 'Japan', title: 'Moshi Moshi', coverage: 'Japan', data:'1 GB',  validity: '7 Days', price: '4.50 €' }
+];
+
+//Please note that currency in this test is in euro, please change it to dollars, if you have this currency by default on site. 
+
+testCases.forEach(({ country, title, coverage, data, validity, price }) => {
+    test('Select first eSIM package for ${country}', async ({ pageManager }) => {
+        await pageManager.homePage.searchCountry(country);
+        await pageManager.homePage.clickBuyNowButton();
+        await pageManager.homePage.checkPackageDetails(title, coverage, data, validity, price);
+    });
+});
